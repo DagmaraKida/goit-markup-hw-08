@@ -1,0 +1,14 @@
+.logo {
+  font-family: "Relaway", sans-serif;
+  @include font(26px, 700, 1, 0.03em);
+  text-align: left;
+  margin-right: 93px;
+
+  &__web {
+    color: map-get($colors, "link");
+  }
+
+  &__studio {
+    color: map-get($colors, "light");
+  }
+}

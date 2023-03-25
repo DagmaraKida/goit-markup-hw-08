@@ -1,0 +1,30 @@
+.newsletter {
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__input {
+    border: 1px solid map-get($colors, "footerContact");
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    background-color: transparent;
+    outline: none;
+    padding: 15px 16px;
+    min-width: 358px;
+    @include font(16px, 400, 1.25, 0.03em);
+    color: map-get($colors, "footerContact");
+
+    &:hover,
+    &:focus {
+      border: 1px solid map-get($colors, "link");
+      transition: color 250ms $transitionTimingFunction;
+    }
+  }
+
+  &__icon {
+    margin-left: 24px;
+    fill: map-get($colors, "light");
+  }
+}

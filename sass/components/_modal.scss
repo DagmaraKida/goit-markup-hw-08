@@ -1,0 +1,154 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 528px;
+  min-height: 581px;
+  background-color: map-get($colors, "light");
+  box-shadow: $boxShadow2;
+  border-radius: $borderRadius;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 350ms $transitionTimingFunction;
+
+  &__close {
+    display: block;
+    margin-left: auto;
+    margin-top: 8px;
+    margin-right: 8px;
+    padding: 6px;
+    max-width: 32px;
+    max-height: 32px;
+    background-color: map-get($colors, "light");
+    border: 1px solid map-get($colors, "backdrop");
+    border-radius: 50%;
+    cursor: pointer;
+    color: map-get($colors, "primary");
+
+    &:hover,
+    &:focus {
+      fill: map-get($colors, "link");
+      border-color: map-get($colors, "link");
+      transition: fill 250ms $transitionTimingFunction border-color 250ms $transitionTimingFunction;
+    }
+  }
+
+  &__title {
+    @include font(20px, 700, 1.15, 0.03em);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px;
+    padding-top: 0;
+  }
+
+  &__item {
+    color: map-get($colors, "contact");
+    @include font(12px, 400, 1.16, 0.01em);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 28px;
+    left: 12px;
+  }
+
+  &__input {
+    outline: none;
+    border: 1px solid map-get($colors, "textarea");
+    border-radius: $borderRadius;
+    padding-left: 42px;
+    height: 40px;
+
+    &:focus,
+    &:focus + svg,
+    &:hover,
+    &:hover + svg {
+      border-color: map-get($colors, "link");
+      fill: map-get($colors, "link");
+      transition: border-color 250ms $transitionTimingFunction, fill 250ms $transitionTimingFunction;
+    }
+  }
+
+  &__textarea {
+    outline: none;
+    resize: none;
+    border: 1px solid map-get($colors, "textarea");
+    border-radius: $borderRadius;
+    padding: 14px 16px 10px 16px;
+    @include font(12px, 400, 1.16, 0.01em);
+    color: map-get($colors, "textarea");
+
+    &::placeholder {
+      color: currentColor;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: map-get($colors, "link");
+      fill: map-get($colors, "link");
+      transition: border-color 250ms $transitionTimingFunction, fill 250ms $transitionTimingFunction;
+    }
+  }
+
+  &__button {
+    margin: auto;
+  }
+
+  &__checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    &-input {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 15px;
+      position: absolute;
+      left: 15px;
+      background-color: map-get($colors, "light");
+      border: 2px solid map-get($colors, "primary");
+      border-radius: 2px;
+
+      &:hover {
+        border-color: map-get($colors, "link");
+      }
+
+      &:checked {
+        opacity: 0;
+        background-color: map-get($colors, "link");
+        transition: opacity 250ms $transitionTimingFunction;
+      }
+    }
+
+    &-text {
+      @include font(14px, 400, 1.5, 0.03em);
+      color: map-get($colors, "contact");
+    }
+
+    &-link {
+      color: map-get($colors, "link");
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: map-get($colors, "highlight");
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+.header {
+  border-bottom: 1px solid map-get($colors, "border");
+  background-color: map-get($colors, "light");
+  height: 80px;
+  display: flex;
+  align-items: center;
+}

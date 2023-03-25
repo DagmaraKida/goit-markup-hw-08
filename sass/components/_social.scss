@@ -1,0 +1,33 @@
+.social {
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__link {
+    fill: map-get($colors, "icons");
+    width: 44px;
+    height: 44px;
+    padding: 12px;
+    border-radius: 50%;
+    display: inline-flex;
+
+    .footer__social & {
+      fill: map-get($colors, "light");
+      background-color: map-get($colors, "footerSocial");
+      margin-top: 0;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: map-get($colors, "link");
+      fill: map-get($colors, "light");
+      transition: background-color 250ms $transitionTimingFunction, fill 250ms $transitionTimingFunction;
+    }
+  }
+}

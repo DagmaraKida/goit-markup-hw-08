@@ -1,0 +1,28 @@
+.team {
+  background-color: map-get($colors, "team");
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+  }
+
+  &__item {
+    background-color: map-get($colors, "light");
+    box-shadow: $boxShadow;
+    border-radius: $borderRadius;
+    margin: 0;
+  }
+
+  &__label {
+    padding: 30px 32px;
+  }
+
+  &__description {
+    color: map-get($colors, "contact");
+    @include font(16px, 400, 1, 0.03em);
+    text-align: center;
+    margin: 0;
+    margin-top: 10px;
+  }
+}

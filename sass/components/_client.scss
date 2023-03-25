@@ -1,0 +1,32 @@
+.client__cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.client__link {
+  width: 170px;
+  height: 92px;
+  padding: 16px 32px;
+  border: 1px solid map-get($colors, "icons");
+  border-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover,
+  &:focus {
+    border-color: map-get($colors, "link");
+    transition: border-color 250ms $transitionTimingFunction;
+  }
+}
+
+.client__icon {
+  fill: map-get($colors, "icons");
+
+  .client__link:hover &,
+  .client__link:focus & {
+    fill: map-get($colors, "link");
+    transition: fill 250ms $transitionTimingFunction;
+  }
+}
