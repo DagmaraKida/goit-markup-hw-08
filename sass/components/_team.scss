@@ -1,28 +1,57 @@
 .team {
-  background-color: map-get($colors, "team");
+  background-color: map-get($colors, 'light');
+  box-shadow: $boxShadow2;
+  border-radius: 0px 0px 4px 4px;
 
-  &__cards {
+  &__photo {
     display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-  }
-
-  &__item {
-    background-color: map-get($colors, "light");
-    box-shadow: $boxShadow;
-    border-radius: $borderRadius;
-    margin: 0;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__label {
-    padding: 30px 32px;
+    margin-top: 30px;
+    margin-bottom: 24px;
+    @include font(16px, 400, 1.8, 0.03em);
+    text-align: center;
+  }
+
+  &__name {
+    font-weight: 500;
+    color: map-get($colors, 'primary');
   }
 
   &__description {
-    color: map-get($colors, "contact");
-    @include font(16px, 400, 1, 0.03em);
-    text-align: center;
-    margin: 0;
-    margin-top: 10px;
+    color: map-get($colors, 'contact');
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    gap: 10px;
+  }
+
+  &__social-link {
+    @extend .social__link;
+    color: map-get($colors, 'icons');
+    fill: currentColor;
+
+    &:hover,
+    &:focus {
+      color: map-get($colors, 'light');
+      background-color: map-get($colors, 'link');
+      border-radius: 50%;
+      transition: color 250ms $transitionTimingFunction, background-color 250ms $transitionTimingFunction;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpointDesktop) {
+  .team {
+    &__label {
+      margin-bottom: 30px;
+    }
   }
 }

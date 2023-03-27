@@ -1,16 +1,45 @@
 .address {
-  &__links {
+  margin-bottom: 60px;
+
+  &__content {
     font-style: normal;
     @include font(14px, 400, 1.71, 0.03em);
-    color: map-get($colors, "light");
-    margin-top: 20px;
 
-    :not(:first-child) {
-      opacity: 0.6;
+    &:not(:first-child) {
+      margin-top: 8px;
     }
 
-    :not(:last-child) {
-      margin-bottom: 9px;
+    &:first-child {
+      margin-top: 20px;
+      color: map-get($colors, 'light');
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: map-get($colors, 'footerContact');
+
+    &:hover,
+    &:focus {
+      background-color: map-get($colors, 'link');
+      transition: background-color 250ms $transitionTimingFunction;
+    }
+  }
+}
+
+//DESKTOP
+
+@media screen and (min-width: $breakpointDesktop) {
+  .address {
+    margin-right: 70px;
+    margin-bottom: 0;
+
+    & > :nth-child(2) {
+      margin-top: 20px;
+    }
+
+    &:not(:first-child) {
+      margin-top: 9px;
     }
   }
 }

@@ -1,39 +1,56 @@
-.portfolio {
-  &__cards {
+.submenu {
+  margin-bottom: 50px;
+
+  &__list {
     display: flex;
-    justify-content: space-between;
+    justify-content: left;
+    align-items: center;
     flex-wrap: wrap;
+    row-gap: 15px;
+    column-gap: 8px;
+  }
+}
+
+.portfolio {
+  justify-content: center;
+
+  & > li:hover {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+    transition: box-shadow 250ms $transitionTimingFunction;
   }
 
-  &__item {
-    margin: 0;
-    margin-left: 0;
-    margin-right: 30px;
-    margin-bottom: 30px;
-    border: 1px solid map-get($colors, "border");
+  & > li:hover .portfolio__overlay {
+    transform: translateY(0);
+  }
 
-    &:nth-child(3n + 3) {
-      margin-right: 0;
-    }
+  &__label {
+    border: 1px solid map-get($colors, 'border');
+    border-top: none;
+    padding: 20px 24px;
+  }
 
-    &:nth-child(n + 7) {
-      margin-bottom: 0;
-    }
+  &__name {
+    @include font(18px, 700, 2, 0.06em);
+    color: map-get($colors, 'primary');
+  }
 
-    &:hover,
-    &:focus {
-      box-shadow: $boxShadow;
-      transition: box-shadow 250ms $transitionTimingFunction;
-    }
+  &__about {
+    @include font(16px, 400, 1.8, 0.03em);
+    color: map-get($colors, 'contact');
   }
 
   &__box {
     position: relative;
     overflow: hidden;
-    height: 294px;
+
+    & > img {
+      width: 100%;
+    }
   }
 
   &__overlay {
+    @include font(18px, 400, 1.55, 0.03em);
+    color: map-get($colors, 'light');
     position: absolute;
     top: 0;
     left: 0;
@@ -42,27 +59,15 @@
     padding: 49px 45px 49px 24px;
     transform: translateY(100%);
     transition: transform 250ms $transitionTimingFunction;
-    background-color: map-get($colors, "portfolioBox");
+    background-color: map-get($colors, 'portfolioBox');
+  }
+}
 
-    .portfolio__item:hover & {
-      transform: translateY(0);
+@media screen and (min-width: $breakpointTablet) {
+  .submenu {
+    &__list {
+      justify-content: center;
+      flex-wrap: none;
     }
-  }
-
-  &__text {
-    @include font(18px, 400, 1.55, 0.03em);
-    margin-top: 0;
-    color: map-get($colors, "light");
-  }
-
-  &__label {
-    padding: 20px 24px;
-    margin: 0;
-  }
-
-  &__description {
-    color: map-get($colors, "contact");
-    @include font(16px, 400, 1.4, 0.03em);
-    margin: 0;
   }
 }

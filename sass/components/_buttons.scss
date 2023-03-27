@@ -1,45 +1,45 @@
 .button {
-  font-family: "Roboto";
-  @include font(16px, 500, 1.6, 0.06em);
-  text-align: center;
   border: 0;
+  text-align: center;
   border-radius: $borderRadius;
-  width: 200px;
-  height: 50px;
-  color: map-get($colors, "light");
-  background-color: map-get($colors, "link");
-  box-shadow: $boxShadow;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  cursor: pointer;
 
-  &:hover,
-  &:focus {
-    cursor: pointer;
-    background-color: map-get($colors, "highlight");
+  &--main {
+    display: block;
+    margin: 0 auto;
     box-shadow: $boxShadow;
-    transition: color 250ms $transitionTimingFunction, background-color 250ms $transitionTimingFunction;
+    @include font(16px, 700, 1.8, 0.06em);
+    padding: 10px 42px;
+    background-color: map-get($colors, 'link');
+    color: map-get($colors, 'light');
   }
+}
 
-  .portfolio & {
-    padding: 6px 22px;
-    max-width: 121px;
-    height: 38px;
-    margin-bottom: 50px;
-    @include font(16px, 500, 1.39, 0.03em);
-    color: map-get($colors, "primary");
-    background-color: map-get($colors, "team");
-    box-shadow: $boxShadow;
+.modal__button {
+  padding: 10px 76px;
+}
 
-    &:not(:last-child) {
-      margin-right: 8px;
-    }
+.newsletter__button {
+  display: inline-flex;
+  gap: 24px;
+  fill: currentColor;
+  line-height: 1.875;
+  padding: 10px 28px 10px 42px;
+  box-shadow: $boxShadow;
+  max-width: 250px;
+}
 
-    &:hover,
-    &:focus {
-      color: map-get($colors, "light");
-      background-color: map-get($colors, "link");
-    }
+.submenu__button {
+  color: inherit;
+  @include font(16px, 500, 1.62, 0.03em);
+  padding: 6px 22px;
+
+  &:focus,
+  &:hover {
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+    background-color: map-get($colors, 'link');
+    color: map-get($colors, 'light');
+    transition: color 250ms $transitionTimingFunction, background-color 250ms $transitionTimingFunction,
+      box-shadow 250ms $transitionTimingFunction;
   }
 }

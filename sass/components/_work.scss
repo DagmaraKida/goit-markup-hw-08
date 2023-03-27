@@ -1,33 +1,30 @@
 .work {
-  &__cards {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 50px;
-  }
+  margin-top: 94px;
 
   &__image {
-    margin: 0;
     position: relative;
-    height: 294px;
-
-    &:not(last-child) {
-      margin-right: 30;
-    }
   }
 
   &__label {
     position: absolute;
     bottom: 0;
+    background-color: map-get($colors, 'boxed');
     width: 100%;
-    background-color: map-get($colors, "boxed");
   }
 
-  &__description {
+  &__text {
     padding: 27px 0;
-    margin: 0;
-    color: map-get($colors, "light");
-    @include font(14px, 700, 1, 0.03em);
+    color: map-get($colors, 'light');
+    @include font(14px, 700, 1.1, 0.03em);
     text-align: center;
     text-transform: uppercase;
+  }
+}
+
+//PHONE, TABLET//
+
+@media screen and (max-width: calc($breakpointDesktop - 1px)) {
+  .work {
+    display: none;
   }
 }

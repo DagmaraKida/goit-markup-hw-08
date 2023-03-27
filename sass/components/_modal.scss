@@ -2,8 +2,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  min-width: 528px;
-  min-height: 581px;
+  padding: 40px;
+  width: calc(100vw - 30px);
+  max-width: 450px;
+  min-height: 609px;
+  visibility: visible;
   background-color: map-get($colors, "light");
   box-shadow: $boxShadow2;
   border-radius: $borderRadius;
@@ -11,24 +14,22 @@
   transition: transform 350ms $transitionTimingFunction;
 
   &__close {
-    display: block;
-    margin-left: auto;
-    margin-top: 8px;
-    margin-right: 8px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
     padding: 6px;
-    max-width: 32px;
-    max-height: 32px;
-    background-color: map-get($colors, "light");
-    border: 1px solid map-get($colors, "backdrop");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
+    background-color: map-get($colors, "light");
+    color: map-get($colors, "dark");
     cursor: pointer;
-    color: map-get($colors, "primary");
 
-    &:hover,
-    &:focus {
+    &:hover {
       fill: map-get($colors, "link");
-      border-color: map-get($colors, "link");
-      transition: fill 250ms $transitionTimingFunction border-color 250ms $transitionTimingFunction;
+      transition: fill 250ms $transitionTimingFunction;
     }
   }
 
@@ -37,14 +38,12 @@
     text-align: center;
     margin-bottom: 12px;
   }
+}
 
-  &__form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 40px;
-    padding-top: 0;
-  }
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   &__item {
     color: map-get($colors, "contact");
@@ -53,12 +52,6 @@
     flex-direction: column;
     gap: 4px;
     position: relative;
-  }
-
-  &__icon {
-    position: absolute;
-    top: 28px;
-    left: 12px;
   }
 
   &__input {
@@ -78,20 +71,26 @@
     }
   }
 
+  &__icon {
+    position: absolute;
+    top: 28px;
+    left: 14px;
+  }
+
   &__textarea {
     outline: none;
     resize: none;
-    border: 1px solid map-get($colors, "textarea");
+    border: 1px solid rgba(33, 33, 33, 0.2);
     border-radius: $borderRadius;
-    padding: 14px 16px 10px 16px;
-    @include font(12px, 400, 1.16, 0.01em);
-    color: map-get($colors, "textarea");
+    padding: 12px 16px;
+    @include font(12px, 400, 1.16, 0.03em);
+    color: rgba(117, 117, 117, 0.5);
 
     &::placeholder {
       color: currentColor;
     }
 
-    &:focus,
+    &:focus-within,
     &:hover {
       border-color: map-get($colors, "link");
       fill: map-get($colors, "link");
@@ -99,56 +98,53 @@
     }
   }
 
-  &__button {
-    margin: auto;
-  }
-
   &__checkbox {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 7px;
-    position: relative;
     margin-top: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 
     &-input {
-      -moz-appearance: none;
-      -webkit-appearance: none;
       appearance: none;
-      width: 16px;
-      height: 15px;
-      position: absolute;
-      left: 15px;
-      background-color: map-get($colors, "light");
-      border: 2px solid map-get($colors, "primary");
-      border-radius: 2px;
+      position: relative;
 
-      &:hover {
-        border-color: map-get($colors, "link");
-      }
-
-      &:checked {
-        opacity: 0;
-        background-color: map-get($colors, "link");
-        transition: opacity 250ms $transitionTimingFunction;
+      &::before {
+        position: absolute;
+        width: 16px;
+        height: 15px;
+        left: 0;
+        top: -8px;
+        content: "";
+        background-color: map-get($colors, "light");
+        border: 2px solid map-get($colors, "primary");
+        border-radius: 2px;
       }
     }
 
+    &-input:checked {
+      opacity: 0;
+      transition: opacity 250ms $transitionTimingFunction;
+    }
+
     &-text {
-      @include font(14px, 400, 1.5, 0.03em);
+      margin-left: 8px;
+      @include font(12px, 400, 1.1, 0.03em);
       color: map-get($colors, "contact");
     }
 
     &-link {
       color: map-get($colors, "link");
-      text-decoration: underline;
-
-      &:hover,
-      &:focus {
-        color: map-get($colors, "highlight");
-        text-decoration: none;
-      }
     }
+  }
+}
+
+@media screen and (min-width: $breakpointDesktop) {
+  .modal {
+    max-width: 528px;
+    min-height: 581px;
+  }
+
+  .form__checkbox-text {
+    @include font(14px, false, 1.71);
   }
 }
